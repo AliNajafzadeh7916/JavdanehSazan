@@ -37,7 +37,7 @@ class MyThemes {
     shadowColor: const Color.fromARGB(255, 255, 255, 255),
     scaffoldBackgroundColor: const Color(0XFF041C32),
     drawerTheme: const DrawerThemeData(backgroundColor: Color(0XFF041C32)),
-    primarySwatch: MyThemes.custom1,
+    primarySwatch: MyThemes.primeryColor,
     secondaryHeaderColor: Colors.white,
     iconTheme: const IconThemeData(color: Colors.white, opacity: 0.8),
     dialogTheme:
@@ -115,7 +115,8 @@ class MyThemes {
     primaryColorLight: Colors.white,
     scaffoldBackgroundColor: Colors.white,
     //primaryColor: Color.fromARGB(255, 0, 83, 250),
-    primarySwatch: MyThemes.custom1,
+    primarySwatch: MyThemes.primeryColor,
+
     secondaryHeaderColor: Colors.black,
     iconTheme: const IconThemeData(color: Colors.black, opacity: 0.8),
     dialogTheme: const DialogTheme(backgroundColor: Colors.white, elevation: 4),
@@ -147,16 +148,16 @@ class MyThemes {
   static const MaterialColor primeryColor = MaterialColor(
     0xFF00BCD4,
     <int, Color>{
-      50: Color(0xFFA4BBC4), // 10%
-      100: Color(0xFF8FB1C0), // 20%
-      200: Color(0xFF7997AB), // 30%
-      300: Color(0xFFCCF7F3), // 40%
-      400: Color(0xFFB3F2ED), // 50%
+      50: Color(0xFF6aeeff), // 10%
+      100: Color(0xFF4cebff), // 20%
+      200: Color(0xFF2ee7ff), // 30%
+      300: Color(0xFF11e4ff), // 40%
+      400: Color(0xFF00d6f2), // 50%
       500: Color(0xFF00BCD4), // 60%
-      600: Color(0xFF405F71), // 70%
-      700: Color(0xFF395165), // 80%
-      800: Color(0xFF32445A), // 90%
-      900: Color(0xFF2B374F), // 100%
+      600: Color(0xFF00a9bf), // 70%
+      700: Color(0xFF0096aa), // 80%
+      800: Color(0xFF008494), // 90%
+      900: Color(0xFF00717f), // 100%
     },
   );
 
