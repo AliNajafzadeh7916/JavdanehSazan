@@ -2,6 +2,7 @@ import 'package:animated_notch_bottom_bar/animated_notch_bottom_bar/animated_not
 import 'package:awesome_icons/awesome_icons.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:javdaneh_sazan/Theme/theme.dart';
 
 import 'child.dart';
 import 'condit.dart';
@@ -56,7 +57,7 @@ class NavigationState extends State<Navigation> {
     SliverAppBar mainAppBar = SliverAppBar(
       pinned: true,
       title: Text(
-        'جاودانه سازان',
+        'کتابم',
         style: TextStyle(fontSize: 20),
       ),
       centerTitle: true,
@@ -94,11 +95,11 @@ class NavigationState extends State<Navigation> {
               borderRadius: BorderRadius.circular(20),
             ),
             enabledBorder: OutlineInputBorder(
-              borderSide: const BorderSide(color: Colors.white),
+              borderSide: const BorderSide(color: Colors.black54),
               borderRadius: BorderRadius.circular(20),
             ),
             hintText: 'جستجو ...',
-            hintStyle: TextStyle(color: Colors.white),
+            contentPadding: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
           ),
         ),
       ),
@@ -158,9 +159,9 @@ class NavigationState extends State<Navigation> {
         extendBody: true,
         bottomNavigationBar: AnimatedNotchBottomBar(
           notchBottomBarController: notchBottomBarController,
-          color: Color(0xFF50A39C),
+          color: MyThemes.primeryColor,
           showLabel: false,
-          notchColor: Color(0xff1563F3),
+          notchColor: MyThemes.secondaryColor,
           bottomBarItems: const [
             BottomBarItem(
               inActiveItem: Icon(FontAwesomeIcons.user),
