@@ -14,7 +14,8 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Column(
         children: [
           Card(
-            elevation: 5,
+            margin: EdgeInsets.symmetric(horizontal: 10, vertical: 15),
+            elevation: 10,
             child: Container(
               height: 200,
               width: double.infinity,
