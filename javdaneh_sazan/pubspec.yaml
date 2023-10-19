@@ -1,0 +1,92 @@
+name: javdaneh_sazan
+
+description: A new Flutter project.
+
+publish_to: 'none'
+
+version: 0.1.0
+
+
+
+environment:
+  sdk: '>=3.1.0 <4.0.0'
+
+
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  intl: ^0.18.1
+  cupertino_icons: ^1.0.6
+  lottie: ^2.6.0
+  provider: ^6.0.5
+  shared_preferences: ^2.2.2
+  dio: ^5.3.3
+  url_launcher: ^6.1.14
+  network_info_plus: ^4.1.0
+  device_info_plus: ^9.1.0
+  expandable: ^5.0.1
+  loading_animation_widget: ^1.2.0
+  flutter_easyloading: ^3.0.5
+  top_snackbar_flutter: ^3.1.0
+  shimmer: ^3.0.0
+  flutter_neumorphic: ^3.2.0
+  flutter_slidable: ^3.0.0
+  flutter_login: ^4.2.1
+  liquid_progress_indicator_v2: ^0.5.0
+  gauge_indicator: ^0.4.3
+  easy_stepper: ^0.8.1
+  dotted_border: ^2.1.0
+  widget_zoom: ^0.0.2
+  intro_slider: ^4.2.1
+  animated_notch_bottom_bar: ^1.0.0
+  pin_input_text_field: ^4.5.1
+  glass_kit: ^3.0.0
+  quiver: ^3.2.1
+  persian_datetime_picker: ^2.6.0
+  shamsi_date: ^1.0.2
+  awesome_icons: ^1.1.0
+
+
+
+
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.3
+  flutter_launcher_icons: ^0.13.1
+
+
+
+
+flutter_icons:
+  android: "launcher_icon"
+  image_path: "assets/icon/logo.png"
+  min_sdk_android: 21
+  
+  # web:
+  #   generate: true
+  #   image_path: "path/to/image.png"
+  #   background_color: "#hexcode"
+  #   theme_color: "#hexcode"
+
+
+
+
+flutter:
+  generate: true
+
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+    - assets/icon/
+
+  fonts:
+   - family: IRANSans
+     fonts:
+       - asset: assets/fonts/IRANSans.ttf
