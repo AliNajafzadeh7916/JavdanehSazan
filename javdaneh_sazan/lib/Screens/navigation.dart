@@ -164,29 +164,31 @@ class NavigationState extends State<Navigation> {
           notchColor: MyThemes.secondaryColor,
           bottomBarItems: const [
             BottomBarItem(
-              inActiveItem: Icon(FontAwesomeIcons.user),
+              inActiveItem: Icon(FontAwesomeIcons.user, color: Colors.white),
               activeItem: Icon(FontAwesomeIcons.user),
               itemLabel: 'حساب کاربری',
             ),
 
             ///svg example
             BottomBarItem(
-              inActiveItem: Icon(FontAwesomeIcons.chartBar),
+              inActiveItem:
+                  Icon(FontAwesomeIcons.chartBar, color: Colors.white),
               activeItem: Icon(FontAwesomeIcons.chartBar),
               itemLabel: 'آمار و گزارشات',
             ),
             BottomBarItem(
-              inActiveItem: Icon(CupertinoIcons.home),
+              inActiveItem: Icon(CupertinoIcons.home, color: Colors.white),
               activeItem: Icon(CupertinoIcons.home),
               itemLabel: 'صفحه اصلی',
             ),
             BottomBarItem(
-              inActiveItem: Icon(Icons.wallet, size: 27),
+              inActiveItem: Icon(Icons.wallet, size: 27, color: Colors.white),
               activeItem: Icon(Icons.wallet, size: 27),
               itemLabel: 'کیف پول',
             ),
             BottomBarItem(
-              inActiveItem: Icon(CupertinoIcons.chat_bubble_2, size: 27),
+              inActiveItem: Icon(CupertinoIcons.chat_bubble_2,
+                  size: 27, color: Colors.white),
               activeItem: Icon(CupertinoIcons.chat_bubble_2, size: 27),
               itemLabel: 'تالار گفتگو',
             ),
