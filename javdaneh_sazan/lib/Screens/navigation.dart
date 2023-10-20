@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:animated_notch_bottom_bar/animated_notch_bottom_bar/animated_notch_bottom_bar.dart';
 import 'package:awesome_icons/awesome_icons.dart';
 import 'package:flutter/cupertino.dart';
@@ -25,13 +27,9 @@ class NavigationState extends State<Navigation> {
     ChildScreen(),
     ShopScreen(),
   ];
-  PageController _pageController = PageController(initialPage: 2);
+  PageController pageController = PageController(initialPage: 2);
   NotchBottomBarController notchBottomBarController =
       NotchBottomBarController(index: 2);
-
-  var appBarList;
-
-  String choiseAppBar = 'mainAppBar';
 
   @override
   void initState() {
@@ -40,122 +38,92 @@ class NavigationState extends State<Navigation> {
 
   back() {
     setState(() {
-      choiseAppBar = 'mainAppBar';
+      notchBottomBarController.index = 2;
+      pageController.animateToPage(
+        2,
+        duration: const Duration(milliseconds: 500),
+        curve: Curves.easeInCirc,
+      );
     });
   }
 
-  Future<bool> Back() async {
+  Future<bool> backApp() async {
     return (await back()) ?? false;
   }
 
-  Future<bool> Exit() async {
-    return (await back()) ?? false;
+  Future<bool> exitApp() async {
+    return (await showDialog(
+          barrierColor: const Color.fromARGB(97, 178, 216, 218),
+          context: context,
+          builder: (context) => AlertDialog(
+            shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(20.0))),
+            title: const Text('خروج از برنامه'),
+            content: const Text('آیا می خواهید از برنامه خارج شوید؟'),
+            actions: <Widget>[
+              TextButton(
+                onPressed: () => Navigator.of(context).pop(false),
+                child: const Text('خیر'),
+              ),
+              TextButton(
+                onPressed: () => exit(0),
+                child: const Text('بله'),
+              ),
+            ],
+          ),
+        )) ??
+        false;
   }
 
   @override
   Widget build(BuildContext context) {
-    SliverAppBar mainAppBar = SliverAppBar(
-      pinned: true,
-      title: Text(
-        'کتابم',
-        style: TextStyle(fontSize: 20),
-      ),
-      centerTitle: true,
-      forceElevated: true,
-      automaticallyImplyLeading: false,
-      elevation: 2,
-      shadowColor: Colors.blue[200],
-      actions: [
-        IconButton(
-          onPressed: () {
-            setState(() {
-              choiseAppBar = 'searchAppBar';
-            });
-          },
-          icon: Icon(CupertinoIcons.search),
-        ),
-      ],
-      leading: IconButton(
-        icon: Icon(
-          Icons.notifications_none_rounded,
-          size: 30,
-        ),
-        onPressed: () {},
-      ),
-    );
-
-    SliverAppBar searchAppBar = SliverAppBar(
-      pinned: true,
-      title: SizedBox(
-        height: 50,
-        child: TextField(
-          decoration: InputDecoration(
-            border: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.white),
-              borderRadius: BorderRadius.circular(20),
+    return WillPopScope(
+      onWillPop: notchBottomBarController.index == 2 ? exitApp : backApp,
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text(
+            notchBottomBarController.index == 0
+                ? 'حساب کاربری'
+                : notchBottomBarController.index == 1
+                    ? 'گزارش و آمار'
+                    : notchBottomBarController.index == 2
+                        ? 'کتابم'
+                        : notchBottomBarController.index == 3
+                            ? 'کیف پول'
+                            : notchBottomBarController.index == 4
+                                ? 'تالار گفتگو'
+                                : '',
+            style: TextStyle(fontSize: 20, color: Colors.white),
+          ),
+          centerTitle: true,
+          automaticallyImplyLeading: false,
+          elevation: 2,
+          shadowColor: Colors.blue[200],
+          actions: [
+            if (notchBottomBarController.index == 0)
+              IconButton(
+                onPressed: () {},
+                icon: Icon(
+                  CupertinoIcons.gift,
+                  color: Colors.white,
+                ),
+              ),
+          ],
+          leading: IconButton(
+            icon: Icon(
+              Icons.notifications_none_rounded,
+              size: 30,
+              color: Colors.white,
             ),
-            enabledBorder: OutlineInputBorder(
-              borderSide: const BorderSide(color: Colors.black54),
-              borderRadius: BorderRadius.circular(20),
-            ),
-            hintText: 'جستجو ...',
-            contentPadding: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+            onPressed: () {},
           ),
         ),
-      ),
-      elevation: 5,
-      shadowColor: Colors.black,
-      forceElevated: true,
-      toolbarHeight: 70,
-      leading: GestureDetector(
-        child: Icon(
-          Icons.arrow_back,
+        body: PageView(
+          controller: pageController,
+          physics: const NeverScrollableScrollPhysics(),
+          children: List.generate(
+              bottomBarPages.length, (index) => bottomBarPages[index]),
         ),
-        onTap: () {
-          setState(() {
-            choiseAppBar = 'mainAppBar';
-          });
-        },
-      ),
-    );
-
-    appBarList = <String, SliverAppBar>{
-      'mainAppBar': mainAppBar,
-      'searchAppBar': searchAppBar,
-    };
-
-    return WillPopScope(
-      onWillPop: choiseAppBar == 'mainAppBar' ? Exit : Back,
-      child: Scaffold(
-        backgroundColor: Colors.white,
-        body: NestedScrollView(
-            physics: NeverScrollableScrollPhysics(),
-            headerSliverBuilder:
-                (BuildContext context, bool innerBoxIsScrolled) {
-              return <Widget>[
-                appBarList[choiseAppBar],
-              ];
-            },
-            body: choiseAppBar == 'mainAppBar'
-                ? PageView(
-                    controller: _pageController,
-                    physics: const NeverScrollableScrollPhysics(),
-                    children: List.generate(bottomBarPages.length,
-                        (index) => bottomBarPages[index]),
-                  )
-                : choiseAppBar == 'searchAppBar'
-                    ? Center(
-                        child: Text(
-                          'اطلاعاتی موجود نیست',
-                          style: TextStyle(fontSize: 17),
-                        ),
-                      )
-                    : Center(
-                        child: Text(
-                          'صفحه ایجاد نشده !!!',
-                          style: TextStyle(fontSize: 17),
-                        ),
-                      )),
         extendBody: true,
         bottomNavigationBar: AnimatedNotchBottomBar(
           notchBottomBarController: notchBottomBarController,
@@ -194,12 +162,14 @@ class NavigationState extends State<Navigation> {
             ),
           ],
           onTap: (index) {
-            notchBottomBarController.index = index;
-            _pageController.animateToPage(
-              index,
-              duration: const Duration(milliseconds: 500),
-              curve: Curves.easeInCirc,
-            );
+            setState(() {
+              notchBottomBarController.index = index;
+              pageController.animateToPage(
+                index,
+                duration: const Duration(milliseconds: 500),
+                curve: Curves.easeInCirc,
+              );
+            });
           },
         ),
       ),
