@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -9,11 +10,13 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  final PageController _pageController = PageController();
   @override
   Widget build(BuildContext context) {
     final Color color;
     final String title;
     final String sort;
+    
     return Scaffold(
         body: SingleChildScrollView(
       physics: BouncingScrollPhysics(),
@@ -26,6 +29,8 @@ class _HomeScreenState extends State<HomeScreen> {
             SizedBox(
               height: 10,
             ),
+            slider_home(context),
+            SizedBox(height: 10,),
             Column(
               children: [
                 Column(
@@ -258,5 +263,44 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
     ));
+  }
+
+  AspectRatio slider_home(BuildContext context) {
+    return AspectRatio(
+    aspectRatio: 2,
+    child: Stack(
+      children: [
+        PageView.builder(scrollBehavior: CupertinoScrollBehavior(),
+          controller: _pageController,
+          itemCount: 4,
+          physics: BouncingScrollPhysics(),
+          itemBuilder: (context, index) => ClipRRect(
+            child: Container(color: Colors.black,),
+          ),
+        ),
+        Positioned(
+          left: 0,
+          right: 0,
+          bottom: 8,
+          child: Center(
+            child: SmoothPageIndicator(
+              controller: _pageController,
+              count: 4,
+              
+              axisDirection: Axis.horizontal,
+              effect: WormEffect(
+                  spacing: 4.0,
+                  radius: 4.0,
+                  
+                  dotWidth: 20.0,
+                  dotHeight: 2.0,
+                  paintStyle: PaintingStyle.fill,
+                  dotColor: Colors.grey.shade400,
+                  activeDotColor: Theme.of(context).colorScheme.onBackground),
+            ),
+          ),
+        ),
+      ],)
+    );
   }
 }

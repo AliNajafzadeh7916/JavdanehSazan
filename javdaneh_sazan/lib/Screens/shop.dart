@@ -10,6 +10,14 @@ class ShopScreen extends StatefulWidget {
 class _ShopScreenState extends State<ShopScreen> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 17,vertical: 20),
+      child: Scaffold(
+        body: Column(children: [Container(
+          height: 70,
+          width: 200,
+          child: ElevatedButton(onPressed: (){}, child:  Text('کتاب های رایگان',style: TextStyle(fontSize: 22,color: Colors.white),)))]),
+      ),
+    );
   }
 }
