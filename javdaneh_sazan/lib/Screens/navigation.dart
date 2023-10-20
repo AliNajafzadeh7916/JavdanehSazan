@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:javdaneh_sazan/Theme/theme.dart';
 
 import 'child.dart';
-import 'condit.dart';
+import 'search.dart';
 import 'home.dart';
 import 'profile.dart';
 import 'shop.dart';
@@ -20,9 +20,9 @@ class Navigation extends StatefulWidget {
 }
 
 class NavigationState extends State<Navigation> {
-  final List<Widget> bottomBarPages = [
+ List<Widget> bottomBarPages = [
     ProfileScreen(),
-    ConditScreen(),
+    SearchScreen(),
     HomeScreen(),
     ChildScreen(),
     ShopScreen(),
@@ -81,20 +81,43 @@ class NavigationState extends State<Navigation> {
       onWillPop: notchBottomBarController.index == 2 ? exitApp : backApp,
       child: Scaffold(
         appBar: AppBar(
-          title: Text(
-            notchBottomBarController.index == 0
-                ? 'حساب کاربری'
-                : notchBottomBarController.index == 1
-                    ? 'گزارش و آمار'
-                    : notchBottomBarController.index == 2
-                        ? 'کتابم'
-                        : notchBottomBarController.index == 3
-                            ? 'کیف پول'
-                            : notchBottomBarController.index == 4
-                                ? 'تالار گفتگو'
-                                : '',
-            style: TextStyle(fontSize: 20, color: Colors.white),
-          ),
+          title: notchBottomBarController.index == 0
+              ? Text(
+                  'حساب کاربری',
+                  style: TextStyle(fontSize: 20, color: Colors.white),
+                )
+              : notchBottomBarController.index == 1
+                  ? Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: TextField(
+                        decoration: InputDecoration(
+                          contentPadding: EdgeInsets.symmetric(horizontal: 15),
+                          hintText: 'جستجو',
+                          prefixIcon: const Icon(Icons.search),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(5),
+                          ),
+                        ),
+                      ),
+                    )
+                  : notchBottomBarController.index == 2
+                      ? Text(
+                          'کتابم',
+                          style: TextStyle(fontSize: 20, color: Colors.white),
+                        )
+                      : notchBottomBarController.index == 3
+                          ? Text(
+                              'تالار گفتگو',
+                              style:
+                                  TextStyle(fontSize: 20, color: Colors.white),
+                            )
+                          : notchBottomBarController.index == 4
+                              ? Text(
+                                  'فروشگاه',
+                                  style: TextStyle(
+                                      fontSize: 20, color: Colors.white),
+                                )
+                              : Container(),
           centerTitle: true,
           automaticallyImplyLeading: false,
           elevation: 2,
@@ -109,14 +132,16 @@ class NavigationState extends State<Navigation> {
                 ),
               ),
           ],
-          leading: IconButton(
-            icon: Icon(
-              Icons.notifications_none_rounded,
-              size: 30,
-              color: Colors.white,
-            ),
-            onPressed: () {},
-          ),
+          leading: notchBottomBarController.index == 0
+              ? IconButton(
+                  icon: Icon(
+                    Icons.notifications_none_rounded,
+                    size: 30,
+                    color: Colors.white,
+                  ),
+                  onPressed: () {},
+                )
+              : Container(),
         ),
         body: PageView(
           controller: pageController,
@@ -139,26 +164,27 @@ class NavigationState extends State<Navigation> {
 
             ///svg example
             BottomBarItem(
-              inActiveItem:
-                  Icon(FontAwesomeIcons.chartBar, color: Colors.white),
-              activeItem: Icon(FontAwesomeIcons.chartBar),
-              itemLabel: 'آمار و گزارشات',
+              inActiveItem: Icon(CupertinoIcons.search, color: Colors.white),
+              activeItem: Icon(CupertinoIcons.search),
+              itemLabel: 'جست و جو',
             ),
             BottomBarItem(
               inActiveItem: Icon(CupertinoIcons.home, color: Colors.white),
               activeItem: Icon(CupertinoIcons.home),
               itemLabel: 'صفحه اصلی',
             ),
-            BottomBarItem(
-              inActiveItem: Icon(Icons.wallet, size: 27, color: Colors.white),
-              activeItem: Icon(Icons.wallet, size: 27),
-              itemLabel: 'کیف پول',
-            ),
+
             BottomBarItem(
               inActiveItem: Icon(CupertinoIcons.chat_bubble_2,
                   size: 27, color: Colors.white),
               activeItem: Icon(CupertinoIcons.chat_bubble_2, size: 27),
               itemLabel: 'تالار گفتگو',
+            ),
+            BottomBarItem(
+              inActiveItem: Icon(Icons.shopping_bag_outlined,
+                  size: 27, color: Colors.white),
+              activeItem: Icon(Icons.shopping_bag_outlined, size: 27),
+              itemLabel: 'فروشگاه',
             ),
           ],
           onTap: (index) {

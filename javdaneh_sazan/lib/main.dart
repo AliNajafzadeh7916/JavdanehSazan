@@ -11,7 +11,7 @@ import 'Logic/Providers/Theme/theme_provider.dart';
 
 import 'Screens/adent.dart';
 import 'Screens/child.dart';
-import 'Screens/condit.dart';
+import 'Screens/search.dart';
 import 'Screens/home.dart';
 import 'Screens/intro.dart';
 import 'Screens/login.dart';
@@ -74,12 +74,11 @@ class _MyAppState extends State<MyApp> {
           "/splash": (context) => SplashScreen(),
           "/login": (context) => LoginScreen(),
           "/adent": (context) => AdentScreen(),
-          "/navigation": (context) => const Navigation(),
-          "/home": (context) => const HomeScreen(),
-          "/profile": (context) => const ProfileScreen(),
-          "/child": (context) => const ChildScreen(),
-          "/shop": (context) => const ShopScreen(),
-          "/condit": (context) => const ConditScreen(),
+          "/navigation": (context) => Navigation(),
+          "/home": (context) => HomeScreen(),
+          "/profile": (context) => ProfileScreen(),
+          "/shop": (context) => ShopScreen(),
+          "/condit": (context) => SearchScreen(),
         },
       );
     });

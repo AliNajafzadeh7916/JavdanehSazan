@@ -1,9 +1,12 @@
 import 'dart:io';
 
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:glass_kit/glass_kit.dart';
 
+import '../Data/Api/api.dart';
+import '../Data/App/dynamic_data_app.dart';
 import 'adent.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -28,7 +31,30 @@ class LoginScreenState extends State<LoginScreen> {
     super.dispose();
   }
 
-  Future<bool> chek_tel() async {
+  Future sendCode({required String phone}) async {
+    Api api = Api();
+    try {
+      Response response = await api.sendCodeToPhone(phone: phone);
+
+      print(response.data);
+
+      if (response.data['Status'] == 200) {
+        // ignore: use_build_context_synchronously
+        Navigator.of(context).pop(false);
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => AdentScreen(tel: tel!),
+          ),
+        );
+      } else if (response.data['Status'] == 901) {
+      } else if (response.data['Status'] == 900) {}
+    } catch (e) {
+      print(e);
+    }
+  }
+
+  Future<bool> checkPhone() async {
     return (await showDialog(
           context: context,
           barrierDismissible: true,
@@ -104,14 +130,8 @@ class LoginScreenState extends State<LoginScreen> {
                     child: Text('ویرایش'),
                   ),
                   TextButton(
-                    onPressed: () {
-                      Navigator.of(context).pop(false);
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => AdentScreen(tel: tel!),
-                        ),
-                      );
+                    onPressed: () async {
+                      await sendCode(phone: tel!);
                     },
                     child: Text('بله'),
                   ),
@@ -228,7 +248,7 @@ class LoginScreenState extends State<LoginScreen> {
                             tel = value;
                             if (tel!.length == 11 &&
                                 tel![0] == '0' &&
-                                tel![1] == '9') chek_tel();
+                                tel![1] == '9') checkPhone();
                           },
                         );
                       },
@@ -241,7 +261,7 @@ class LoginScreenState extends State<LoginScreen> {
                             ? () {
                                 tel ??= '09xxxxxxxxx';
                                 if (tel!.length < 11) tel = '09xxxxxxxxx';
-                                chek_tel();
+                                checkPhone();
                                 ;
                               }
                             : null,

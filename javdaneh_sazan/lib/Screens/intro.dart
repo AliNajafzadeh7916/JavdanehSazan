@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intro_slider/intro_slider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class IntroScreen extends StatefulWidget {
   @override
@@ -9,7 +10,9 @@ class IntroScreen extends StatefulWidget {
 class IntroScreenState extends State<IntroScreen> {
   late Function goToTab;
 
-  void onDonePress() {
+  Future<void> onDonePress() async {
+    // final prefs = await SharedPreferences.getInstance();
+    // prefs.setString('session', '0');
     Navigator.of(context).pushReplacementNamed('/login');
   }
 
@@ -30,12 +33,12 @@ class IntroScreenState extends State<IntroScreen> {
   ButtonStyle myButtonStyle1() {
     return ButtonStyle(
       shape: MaterialStateProperty.all<OutlinedBorder>(const StadiumBorder()),
-      backgroundColor:
-          MaterialStateProperty.all<Color>(const Color.fromARGB(51, 111, 88, 200)),
-      foregroundColor:
-          MaterialStateProperty.all<Color>(const Color.fromARGB(255, 7, 54, 128)),
-      overlayColor:
-          MaterialStateProperty.all<Color>(const Color.fromARGB(226, 115, 143, 210)),
+      backgroundColor: MaterialStateProperty.all<Color>(
+          const Color.fromARGB(51, 111, 88, 200)),
+      foregroundColor: MaterialStateProperty.all<Color>(
+          const Color.fromARGB(255, 7, 54, 128)),
+      overlayColor: MaterialStateProperty.all<Color>(
+          const Color.fromARGB(226, 115, 143, 210)),
     );
   }
 
@@ -44,22 +47,22 @@ class IntroScreenState extends State<IntroScreen> {
       shape: MaterialStateProperty.all<OutlinedBorder>(const StadiumBorder()),
       backgroundColor:
           MaterialStateProperty.all<Color>(const Color.fromARGB(0, 0, 0, 0)),
-      foregroundColor:
-          MaterialStateProperty.all<Color>(const Color.fromARGB(255, 7, 54, 128)),
-      overlayColor:
-          MaterialStateProperty.all<Color>(const Color.fromARGB(226, 115, 143, 210)),
+      foregroundColor: MaterialStateProperty.all<Color>(
+          const Color.fromARGB(255, 7, 54, 128)),
+      overlayColor: MaterialStateProperty.all<Color>(
+          const Color.fromARGB(226, 115, 143, 210)),
     );
   }
 
   ButtonStyle myButtonStyle3() {
     return ButtonStyle(
       shape: MaterialStateProperty.all<OutlinedBorder>(const StadiumBorder()),
-      backgroundColor:
-          MaterialStateProperty.all<Color>(const Color.fromARGB(51, 111, 88, 200)),
-      foregroundColor:
-          MaterialStateProperty.all<Color>(const Color.fromARGB(255, 7, 54, 128)),
-      overlayColor:
-          MaterialStateProperty.all<Color>(const Color.fromARGB(226, 115, 143, 210)),
+      backgroundColor: MaterialStateProperty.all<Color>(
+          const Color.fromARGB(51, 111, 88, 200)),
+      foregroundColor: MaterialStateProperty.all<Color>(
+          const Color.fromARGB(255, 7, 54, 128)),
+      overlayColor: MaterialStateProperty.all<Color>(
+          const Color.fromARGB(226, 115, 143, 210)),
     );
   }
 
