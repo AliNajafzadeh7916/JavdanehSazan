@@ -20,7 +20,7 @@ class Navigation extends StatefulWidget {
 }
 
 class NavigationState extends State<Navigation> {
- List<Widget> bottomBarPages = [
+  List<Widget> bottomBarPages = [
     ProfileScreen(),
     SearchScreen(),
     HomeScreen(),
@@ -87,22 +87,13 @@ class NavigationState extends State<Navigation> {
                   style: TextStyle(fontSize: 20, color: Colors.white),
                 )
               : notchBottomBarController.index == 1
-                  ? Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: TextField(
-                        decoration: InputDecoration(
-                          contentPadding: EdgeInsets.symmetric(horizontal: 15),
-                          hintText: 'جستجو',
-                          prefixIcon: const Icon(Icons.search),
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(5),
-                          ),
-                        ),
-                      ),
+                  ? Text(
+                      'جستجو',
+                      style: TextStyle(fontSize: 20, color: Colors.white),
                     )
                   : notchBottomBarController.index == 2
                       ? Text(
-                          'کتابم',
+                          'بامادان',
                           style: TextStyle(fontSize: 20, color: Colors.white),
                         )
                       : notchBottomBarController.index == 3
