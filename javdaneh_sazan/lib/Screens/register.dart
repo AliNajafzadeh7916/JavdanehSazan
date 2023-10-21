@@ -9,7 +9,7 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
- 
+
   @override
   Widget build(BuildContext context) {
     
@@ -21,7 +21,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
           child: Container(
             height: 100,
             width: 100,
-            color: Colors.blueGrey,
+          child: Image.asset('assets/icon/logo.png'),
           ),
         ),
         SizedBox(

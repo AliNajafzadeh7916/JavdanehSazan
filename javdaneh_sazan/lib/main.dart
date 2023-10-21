@@ -69,7 +69,7 @@ class _MyAppState extends State<MyApp> {
           Locale('ar', 'SA'),
         ],
         locale: languageProvider.localeMode,
-        initialRoute: "/intro",
+        initialRoute: "/navigation",
       
         routes: {
           "/intro": (context) => IntroScreen(),

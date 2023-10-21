@@ -12,12 +12,40 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final PageController _pageController = PageController();
+  List<Image> image = [
+    Image.asset('assets/images/1.jpg', fit: BoxFit.cover),
+    Image.asset('assets/images/2.jpg', fit: BoxFit.cover),
+    Image.asset('assets/images/4.jpg', fit: BoxFit.cover),
+    Image.asset('assets/images/3.jpg', fit: BoxFit.cover),
+  ];
+  List<Image> image2 = [
+    Image.asset('assets/images/2.jpg', fit: BoxFit.cover),
+    Image.asset('assets/images/3.jpg', fit: BoxFit.cover),
+    Image.asset('assets/images/1.jpg', fit: BoxFit.cover),
+    Image.asset('assets/images/4.jpg', fit: BoxFit.cover),
+  ];
+  List<Image> image3 = [
+    Image.asset('assets/images/3.jpg', fit: BoxFit.cover),
+    Image.asset('assets/images/4.jpg', fit: BoxFit.cover),
+    Image.asset('assets/images/1.jpg', fit: BoxFit.cover),
+    Image.asset('assets/images/2.jpg', fit: BoxFit.cover),
+  ];
+  List<String> text1 = ['شازده کوچولو', 'مدریت خشم', 'کتابخانه نیمه شب', 'رشد'];
+  List<String> text2 = [
+    'مدیریت خشم',
+    'رشد',
+    'شازده کوچولو ',
+    'کتابخانه نیمه شود',
+  ];
+  List<String> text3 = [
+    'رشد',
+    'کتابخانه نیمه شب',
+    'شازده کوچولو',
+    'مدیریت خشم',
+  ];
+
   @override
   Widget build(BuildContext context) {
-    final Color color;
-    final String title;
-    final String sort;
-
     return Scaffold(
         body: SingleChildScrollView(
       physics: BouncingScrollPhysics(),
@@ -30,8 +58,10 @@ class _HomeScreenState extends State<HomeScreen> {
             SizedBox(
               height: 10,
             ),
-          slider_home(context),
-            SizedBox(height: 10,),
+            slider_home(context),
+            SizedBox(
+              height: 10,
+            ),
             Column(
               children: [
                 Column(
@@ -50,8 +80,6 @@ class _HomeScreenState extends State<HomeScreen> {
                             )
                           ],
                         ),
-                        TextButton(
-                            onPressed: () {}, child: const Text('مشاهده همه')),
                       ],
                     ),
                     Container(
@@ -71,7 +99,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(5)),
                             child: ListView.builder(
-                                itemCount: 8,
+                                itemCount: 4,
                                 scrollDirection: Axis.horizontal,
                                 padding:
                                     const EdgeInsets.only(left: 8, right: 4),
@@ -82,8 +110,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                         padding: const EdgeInsets.only(
                                             top: 17, right: 7),
                                         child: Container(
-                                          child: Icon(
-                                              Icons.hourglass_empty_outlined),
+                                          child: image[index],
                                           decoration: BoxDecoration(
                                               border: Border.all(),
                                               borderRadius:
@@ -95,7 +122,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       SizedBox(
                                         height: 5,
                                       ),
-                                      Text(' این است کتابم')
+                                      Text(text1[index])
                                     ],
                                   );
                                 })),
@@ -117,17 +144,15 @@ class _HomeScreenState extends State<HomeScreen> {
                       children: [
                         Column(
                           children: [
-                            Text('پربازدیدترین کتاب ها',
+                            Text('جدیدترین کتاب ها',
                                 style: Theme.of(context).textTheme.titleMedium),
                             Container(
                               height: 1,
-                              width: 127,
+                              width: 120,
                               color: Colors.black54,
                             )
                           ],
                         ),
-                        TextButton(
-                            onPressed: () {}, child: const Text('مشاهده همه')),
                       ],
                     ),
                     Container(
@@ -147,7 +172,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(5)),
                             child: ListView.builder(
-                                itemCount: 8,
+                                itemCount: 4,
                                 scrollDirection: Axis.horizontal,
                                 padding:
                                     const EdgeInsets.only(left: 8, right: 4),
@@ -158,8 +183,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                         padding: const EdgeInsets.only(
                                             top: 17, right: 7),
                                         child: Container(
-                                          child: Icon(
-                                              Icons.hourglass_empty_outlined),
+                                          child: image2[index],
                                           decoration: BoxDecoration(
                                               border: Border.all(),
                                               borderRadius:
@@ -171,7 +195,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                       SizedBox(
                                         height: 5,
                                       ),
-                                      Text(' این است کتابم')
+                                      Text(
+                                        text2[index],
+                                      )
                                     ],
                                   );
                                 })),
@@ -193,7 +219,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       children: [
                         Column(
                           children: [
-                            Text('پربازدیدترین کتاب ها',
+                            Text('مشهورترین ها ',
                                 style: Theme.of(context).textTheme.titleMedium),
                             Container(
                               height: 1,
@@ -202,8 +228,6 @@ class _HomeScreenState extends State<HomeScreen> {
                             )
                           ],
                         ),
-                        TextButton(
-                            onPressed: () {}, child: const Text('مشاهده همه')),
                       ],
                     ),
                     Container(
@@ -223,7 +247,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(5)),
                             child: ListView.builder(
-                                itemCount: 8,
+                                itemCount: 4,
                                 scrollDirection: Axis.horizontal,
                                 padding:
                                     const EdgeInsets.only(left: 8, right: 4),
@@ -234,8 +258,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                         padding: const EdgeInsets.only(
                                             top: 17, right: 7),
                                         child: Container(
-                                          child: Icon(
-                                              Icons.hourglass_empty_outlined),
+                                          child: image3[index],
                                           decoration: BoxDecoration(
                                               border: Border.all(),
                                               borderRadius:
@@ -247,7 +270,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       SizedBox(
                                         height: 5,
                                       ),
-                                      Text(' این است کتابم')
+                                      Text(text3[index])
                                     ],
                                   );
                                 })),
