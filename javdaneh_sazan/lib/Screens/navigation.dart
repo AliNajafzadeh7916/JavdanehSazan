@@ -5,7 +5,11 @@ import 'package:awesome_icons/awesome_icons.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:javdaneh_sazan/Theme/theme.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:javdaneh_sazan/logic/providers/Language/language_provider.dart';
+import 'package:provider/provider.dart';
 
+import '../logic/providers/Theme/theme_provider.dart';
 import 'discussion.dart';
 import 'search.dart';
 import 'home.dart';
@@ -83,22 +87,22 @@ class NavigationState extends State<Navigation> {
         appBar: AppBar(
           title: notchBottomBarController.index == 0
               ? Text(
-                  'حساب کاربری',
+                  AppLocalizations.of(context)!.k15,
                   style: TextStyle(fontSize: 20, color: Colors.white),
                 )
               : notchBottomBarController.index == 1
                   ? Text(
-                      'جستجو',
+                      AppLocalizations.of(context)!.k3,
                       style: TextStyle(fontSize: 20, color: Colors.white),
                     )
                   : notchBottomBarController.index == 2
                       ? Text(
-                          'بامادان',
+                          AppLocalizations.of(context)!.bamadan,
                           style: TextStyle(fontSize: 20, color: Colors.white),
                         )
                       : notchBottomBarController.index == 3
                           ? Text(
-                              'تالار گفتگو',
+                              AppLocalizations.of(context)!.k20,
                               style:
                                   TextStyle(fontSize: 20, color: Colors.white),
                             )
@@ -122,6 +126,14 @@ class NavigationState extends State<Navigation> {
                   color: Colors.white,
                 ),
               ),
+            if (notchBottomBarController.index == 2)
+              IconButton(
+                onPressed: () {},
+                icon: Icon(
+                  Icons.translate_rounded,
+                  color: Colors.white,
+                ),
+              ),
           ],
           leading: notchBottomBarController.index == 0
               ? IconButton(
@@ -132,7 +144,16 @@ class NavigationState extends State<Navigation> {
                   ),
                   onPressed: () {},
                 )
-              : Container(),
+              : notchBottomBarController.index == 2
+                  ? IconButton(
+                      onPressed: () {},
+                      icon: Icon(
+                        CupertinoIcons.moon_circle,
+                        color: Colors.white,
+                        size: 30,
+                      ),
+                    )
+                  : Container(),
         ),
         body: PageView(
           controller: pageController,

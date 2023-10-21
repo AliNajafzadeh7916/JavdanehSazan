@@ -33,21 +33,29 @@ class LoginScreenState extends State<LoginScreen> {
   Future sendCode({required String phone}) async {
     Api api = Api();
     try {
-      Response response = await api.sendCodeToPhone(phone: phone);
+      // Response response = await api.sendCodeToPhone(phone: phone);
 
-      print(response.data);
+      // print(response.data);
 
-      if (response.data['Status'] == 200) {
-        // ignore: use_build_context_synchronously
-        Navigator.of(context).pop(false);
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => AdentScreen(tel: tel!),
-          ),
-        );
-      } else if (response.data['Status'] == 901) {
-      } else if (response.data['Status'] == 900) {}
+      // if (response.data['Status'] == 200) {
+      //   // ignore: use_build_context_synchronously
+      //   Navigator.of(context).pop(false);
+      //   Navigator.push(
+      //     context,
+      //     MaterialPageRoute(
+      //       builder: (context) => AdentScreen(tel: tel!),
+      //     ),
+      //   );
+      // } else if (response.data['Status'] == 901) {
+      // } else if (response.data['Status'] == 900) {}
+
+      Navigator.of(context).pop(false);
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => AdentScreen(tel: tel!),
+        ),
+      );
     } catch (e) {
       print(e);
     }

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:javdaneh_sazan/Screens/home_slider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -30,8 +31,10 @@ class _HomeScreenState extends State<HomeScreen> {
             SizedBox(
               height: 10,
             ),
-          slider_home(context),
-            SizedBox(height: 10,),
+            slider_home(context),
+            SizedBox(
+              height: 10,
+            ),
             Column(
               children: [
                 Column(
@@ -41,7 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       children: [
                         Column(
                           children: [
-                            Text('پربازدیدترین کتاب ها',
+                            Text(AppLocalizations.of(context)!.k1,
                                 style: Theme.of(context).textTheme.titleMedium),
                             Container(
                               height: 1,
@@ -51,7 +54,8 @@ class _HomeScreenState extends State<HomeScreen> {
                           ],
                         ),
                         TextButton(
-                            onPressed: () {}, child: const Text('مشاهده همه')),
+                            onPressed: () {},
+                            child: Text(AppLocalizations.of(context)!.k2)),
                       ],
                     ),
                     Container(
@@ -117,7 +121,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       children: [
                         Column(
                           children: [
-                            Text('پربازدیدترین کتاب ها',
+                            Text(AppLocalizations.of(context)!.k1,
                                 style: Theme.of(context).textTheme.titleMedium),
                             Container(
                               height: 1,
@@ -127,7 +131,8 @@ class _HomeScreenState extends State<HomeScreen> {
                           ],
                         ),
                         TextButton(
-                            onPressed: () {}, child: const Text('مشاهده همه')),
+                            onPressed: () {},
+                            child: Text(AppLocalizations.of(context)!.k2)),
                       ],
                     ),
                     Container(
@@ -193,7 +198,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       children: [
                         Column(
                           children: [
-                            Text('پربازدیدترین کتاب ها',
+                            Text(AppLocalizations.of(context)!.k1,
                                 style: Theme.of(context).textTheme.titleMedium),
                             Container(
                               height: 1,
@@ -203,7 +208,8 @@ class _HomeScreenState extends State<HomeScreen> {
                           ],
                         ),
                         TextButton(
-                            onPressed: () {}, child: const Text('مشاهده همه')),
+                            onPressed: () {},
+                            child: Text(AppLocalizations.of(context)!.k2)),
                       ],
                     ),
                     Container(

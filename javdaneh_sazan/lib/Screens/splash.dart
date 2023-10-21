@@ -36,14 +36,14 @@ class SplashScreenState extends State<SplashScreen> {
   Future checkSessionState() async {
     String intro = await checkIntro();
 
-    if (intro != '0') {
+    if (intro == '0') {
       // ignore: use_build_context_synchronously
       Navigator.of(context).pushNamed('/intro');
     } else {
       //
       session = await getSession();
 
-      if (session == '0') {
+      if (session != '0') {
         Response response = await api.checkSessionApi(session: session!);
 
         print(response.data);
@@ -88,7 +88,7 @@ class SplashScreenState extends State<SplashScreen> {
                     image: AssetImage('assets/icon/logo.png'),
                   )),
               Text(
-                AppLocalizations.of(context)!.welcome_text,
+                AppLocalizations.of(context)!.bamadan,
                 style:
                     const TextStyle(fontSize: 27, fontWeight: FontWeight.bold),
               )

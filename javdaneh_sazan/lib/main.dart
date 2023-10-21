@@ -69,8 +69,7 @@ class _MyAppState extends State<MyApp> {
           Locale('ar', 'SA'),
         ],
         locale: languageProvider.localeMode,
-        initialRoute: "/intro",
-      
+        initialRoute: "/splash",
         routes: {
           "/intro": (context) => IntroScreen(),
           "/splash": (context) => SplashScreen(),

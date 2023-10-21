@@ -110,6 +110,11 @@ class _SearchScreenState extends State<SearchScreen> {
                 ),
               )
             ]),
+          ),
+          SizedBox(height: 30),
+          Image(
+            height: 200,
+            image: AssetImage('assets/icon/logo.png'),
           )
         ],
       ),
