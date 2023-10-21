@@ -55,8 +55,33 @@ class _DiscussionScreenState extends State<DiscussionScreen> {
               ),
             ],
           ),
-
-          Text('')
+          Row(
+            children: [
+              SizedBox(width: 30),
+              Text(
+                '- قراره چیکار کنیم ؟',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+              ),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SizedBox(
+                width: MediaQuery.of(context).size.width,
+                child: Padding(
+                  padding: const EdgeInsets.all(15),
+                  child: Text(
+                    '  لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز ',
+                  ),
+                ),
+              ),
+            ],
+          ),
+          Image(
+            height: 250,
+            image: AssetImage('assets/images/ali.png'),
+          )
         ],
       ),
     );
