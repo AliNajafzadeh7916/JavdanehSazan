@@ -6,7 +6,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:javdaneh_sazan/Theme/theme.dart';
 
-import 'child.dart';
+import 'discussion.dart';
 import 'search.dart';
 import 'home.dart';
 import 'profile.dart';
@@ -24,7 +24,7 @@ class NavigationState extends State<Navigation> {
     ProfileScreen(),
     SearchScreen(),
     HomeScreen(),
-    ChildScreen(),
+    DiscussionScreen(),
     ShopScreen(),
   ];
   PageController pageController = PageController(initialPage: 2);

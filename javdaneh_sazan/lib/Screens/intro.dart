@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intro_slider/intro_slider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:javdaneh_sazan/Theme/theme.dart';
 
 class IntroScreen extends StatefulWidget {
   @override
@@ -75,7 +75,9 @@ class IntroScreenState extends State<IntroScreen> {
         height: double.infinity,
         child: ListView(
           children: [
+            SizedBox(height: 20),
             const Image(
+              height: 250,
               image: AssetImage('assets/icon/logo.png'),
             ),
             const SizedBox(height: 20),
@@ -85,10 +87,10 @@ class IntroScreenState extends State<IntroScreen> {
                 children: [
                   Text(
                     index == 0
-                        ? 'به گامینو خوش اومدی '
+                        ? 'به بامادان خوش آمدید '
                         : index == 1
                             ? 'با هم رشد کنیم'
-                            : 'تجربه کسب کنیم \nو با هم اشتراک بزاریم',
+                            : 'کسب درآمد و تجربه',
                     textAlign: TextAlign.center,
                     style: const TextStyle(
                       fontSize: 30.0,
@@ -98,7 +100,7 @@ class IntroScreenState extends State<IntroScreen> {
                   index == 0
                       ? const Text(
                           textAlign: TextAlign.center,
-                          'اینجا قراه با کلی محتوای خوب و پاک آشنا شیم',
+                          'با ما دانایی‌ها تون رو ارتقاء بدین',
                           style: TextStyle(
                             fontSize: 15.0,
                             fontWeight: FontWeight.bold,
@@ -107,7 +109,7 @@ class IntroScreenState extends State<IntroScreen> {
                       : index == 1
                           ? const Text(
                               textAlign: TextAlign.center,
-                              'اینجا قراره باهم یادبگیریم چجوری کودکمون رو درک و تربیت کنیم',
+                              'اینجا قراره ما به جای شما کتاب بخونیم \n و شما چیزای جدید یاد بگیرین',
                               style: TextStyle(
                                 fontSize: 15.0,
                                 fontWeight: FontWeight.bold,
@@ -115,12 +117,21 @@ class IntroScreenState extends State<IntroScreen> {
                             )
                           : const Text(
                               textAlign: TextAlign.center,
-                              'میتونی هم با بازی های مختلف آشنا بشی هم با بقیه والدین گفتگو کنی و اگر هم سوالی داشتی مشاوران آماده پاسخگویی به سوالتن!',
+                              'میتونی هم درآمد کسب کنی\n هم در کنار آدم های متخصص رشد کنی',
                               style: TextStyle(
                                 fontSize: 15.0,
                                 fontWeight: FontWeight.bold,
                               ),
-                            )
+                            ),
+                  SizedBox(height: 20),
+                  Image(
+                    height: 100,
+                    image: AssetImage(index == 0
+                        ? 'assets/images/intro1.png'
+                        : index == 1
+                            ? 'assets/images/intro2.png'
+                            : 'assets/images/intro3.png'),
+                  )
                 ],
               ),
             ),
@@ -152,7 +163,7 @@ class IntroScreenState extends State<IntroScreen> {
 
       // Indicator
       indicatorConfig: const IndicatorConfig(
-        colorIndicator: Color.fromARGB(255, 106, 92, 255),
+        colorIndicator: MyThemes.primeryColor,
         sizeIndicator: 8,
         typeIndicatorAnimation: TypeIndicatorAnimation.sizeTransition,
       ),

@@ -10,7 +10,7 @@ import 'Logic/Providers/Language/language_provider.dart';
 import 'Logic/Providers/Theme/theme_provider.dart';
 
 import 'Screens/adent.dart';
-import 'Screens/child.dart';
+import 'Screens/discussion.dart';
 import 'Screens/search.dart';
 import 'Screens/home.dart';
 import 'Screens/intro.dart';
@@ -64,11 +64,11 @@ class _MyAppState extends State<MyApp> {
           GlobalCupertinoLocalizations.delegate,
         ],
         supportedLocales: const [
-          Locale('en', 'US'),
           Locale('fa', 'IR'),
+          Locale('ar', 'SA'),
         ],
         locale: languageProvider.localeMode,
-        initialRoute: "/navigation",
+        initialRoute: "/intro",
         routes: {
           "/intro": (context) => IntroScreen(),
           "/splash": (context) => SplashScreen(),
@@ -78,7 +78,8 @@ class _MyAppState extends State<MyApp> {
           "/home": (context) => HomeScreen(),
           "/profile": (context) => ProfileScreen(),
           "/shop": (context) => ShopScreen(),
-          "/condit": (context) => SearchScreen(),
+          "/search": (context) => SearchScreen(),
+          "/discussion": (context) => DiscussionScreen(),
         },
       );
     });

@@ -6,7 +6,6 @@ import 'package:flutter/services.dart';
 import 'package:glass_kit/glass_kit.dart';
 
 import '../Data/Api/api.dart';
-import '../Data/App/dynamic_data_app.dart';
 import 'adent.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -224,6 +223,7 @@ class LoginScreenState extends State<LoginScreen> {
                         hintStyle: TextStyle(
                           fontSize: 18,
                           color: Colors.grey[600],
+                          fontFamily: 'IRANSans',
                         ),
                         label: SizedBox(
                           width: MediaQuery.of(context).size.width * 0.40,
@@ -236,7 +236,7 @@ class LoginScreenState extends State<LoginScreen> {
                                 ),
                                 Text(
                                   'شماره همراه',
-                                  style: TextStyle(),
+                                  style: TextStyle(fontFamily: 'IRANSans'),
                                 ),
                               ]),
                         ),
