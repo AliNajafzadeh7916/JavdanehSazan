@@ -14,6 +14,7 @@ class _SearchScreenState extends State<SearchScreen> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
+      scrollDirection: Axis.vertical,
       physics: const AlwaysScrollableScrollPhysics(),
       child: Column(
         children: [

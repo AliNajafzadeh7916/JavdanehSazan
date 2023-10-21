@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:javdaneh_sazan/Screens/register.dart';
 import 'package:provider/provider.dart';
 
 import 'Logic/Providers/Language/language_provider.dart';
@@ -68,7 +69,7 @@ class _MyAppState extends State<MyApp> {
           Locale('fa', 'IR'),
         ],
         locale: languageProvider.localeMode,
-        initialRoute: "/navigation",
+        initialRoute: "/register",
         routes: {
           "/intro": (context) => IntroScreen(),
           "/splash": (context) => SplashScreen(),
@@ -79,6 +80,7 @@ class _MyAppState extends State<MyApp> {
           "/profile": (context) => ProfileScreen(),
           "/shop": (context) => ShopScreen(),
           "/condit": (context) => SearchScreen(),
+          "/register": (context) => RegisterScreen(),
         },
       );
     });
