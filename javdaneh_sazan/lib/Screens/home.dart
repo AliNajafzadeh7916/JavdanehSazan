@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:javdaneh_sazan/Screens/home_slider.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -29,10 +30,8 @@ class _HomeScreenState extends State<HomeScreen> {
             SizedBox(
               height: 10,
             ),
-            slider_home(context),
-            SizedBox(
-              height: 10,
-            ),
+          slider_home(context),
+            SizedBox(height: 10,),
             Column(
               children: [
                 Column(
